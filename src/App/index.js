@@ -1,23 +1,18 @@
-import React from 'react';
+import React from "react";
 import Applayout from "./Applayout";
-import Navbar from "./Navbar";
-import Welcome from "./Welcome";
-import {AppProvider} from "./AppProvider";
-import './App.css';
-
+import { AppProvider } from "./AppProvider";
+import Core from "./Core";
 
 function App() {
-  return (
-    <>
-      <Applayout>
-        <AppProvider>
-          <Navbar />
-          <Welcome />
-        </AppProvider>
-      </Applayout>
-
-    </>
-  );
+    return (
+        <>
+            <Applayout>
+                <AppProvider>
+                    <Core />
+                </AppProvider>
+            </Applayout>
+        </>
+    );
 }
 
 export default App;

@@ -1,13 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
+import { FETCH_COINS, RETRIEVE_STORAGE, SET_PAGE } from "./actionTypes";
 
-export const AppContext = React.createContext()
+const initialState = {
+    page: "Settings",
+    firstVisit: true,
+    coins: [],
+    favorites: [],
+};
+export const AppContext = React.createContext();
 
+function reducer(state, action) {
+    const { type, payload } = action;
+    switch (type) {
+        case FETCH_COINS:
+            return { ...state, coins: payload };
+        case RETRIEVE_STORAGE:
+            return { ...state, ...payload };
+        case SET_PAGE:
+            return { ...state, page: payload };
+
+        default:
+            return state;
+    }
+}
 export const AppProvider = (props) => {
-    const [page, set_page] = useState("Settings")
+    const [state, dispatch] = React.useReducer(reducer, initialState);
 
     return (
-        <AppContext.Provider value={[page, set_page]}>
+        <AppContext.Provider value={{ state, dispatch }}>
             {props.children}
         </AppContext.Provider>
     );
-}
+};
