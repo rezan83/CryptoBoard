@@ -15,6 +15,7 @@ let Logo = styled.div`
 `;
 
 let LinkActive = styled.div`
+    cursor: pointer;
     ${({ active }) =>
         active &&
         css`
