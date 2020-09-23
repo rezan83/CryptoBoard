@@ -1,20 +1,22 @@
-import React, { useContext } from "react";
+import React  from "react";
 import styled, { css } from "styled-components";
 import { AppContext } from "./AppProvider";
 import { SET_PAGE } from "../App/actionTypes";
 
 let NavHorizontal = styled.div`
     display: grid;
-    grid-template-columns: minmax(150px, 1fr) 100px 100px;
+    grid-template-columns: minmax(100px, 1fr) 75px 75px;
+    grid-gap: 5vw;
     margin-bottom: 30px;
 `;
 
 let Logo = styled.div`
-    font-size: 1.4em;
-    margin-bottom: 30px;
+    font-size: calc(1.1em + 1vw);
 `;
 
 let LinkActive = styled.div`
+    justify-self: right;
+    font-size: calc(1em + .5vw);
     cursor: pointer;
     ${({ active }) =>
         active &&
@@ -24,7 +26,7 @@ let LinkActive = styled.div`
 `;
 
 const StyledLink = ({ name, active }) => {
-    const { state, dispatch } = useContext(AppContext);
+    const { state, dispatch } = React.useContext(AppContext);
     return (
         <LinkActive
             active={name === state.page}

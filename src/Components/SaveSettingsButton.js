@@ -3,7 +3,11 @@ import styled from "styled-components";
 
 import { AppContext } from "../App/AppProvider";
 import { SET_STORAGE } from "../App/actionTypes";
-import { color3, fontSize1, greenBoxShadow } from "../Shared/SharedStyles.js";
+import {
+    color3,
+    fontSize1,
+    cyanBoxShadow,
+} from "../Shared/SharedStyles.js";
 
 let CenterDive = styled.div`
     display: grid;
@@ -17,7 +21,7 @@ let OkButtonStyled = styled.div`
     color: ${color3};
     cursor: pointer;
     &:hover {
-        ${greenBoxShadow}
+        ${cyanBoxShadow}
     }
 `;
 export function SaveSettingsButton() {

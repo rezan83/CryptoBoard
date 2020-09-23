@@ -8,41 +8,65 @@ import {
 
 const CoinCard = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    overflow: hidden;
+    padding: 1%;
 `;
+
 const CoinInfo = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-size: ${(props) => (props.showStar ? "200%" : "100%")};
 `;
 const CoinImage = styled.img`
-    width: 25%;
+    width: 20%;
     min-width: 25px;
-    height: 25%;
+    height: 20%;
     min-height: 25px;
+    padding: 1%;
 `;
-const Coin = ({ coin, coinKey, toggelFavorit, favored, selected }) => {
+
+function Coin({
+    coin,
+    coinKey,
+    toggelFavorit = false,
+    favored = false,
+    price = null,
+    disabled = false,
+    showStar = false,
+    dashboard = false,
+    currencey = "EUR",
+}) {
     let CardHover = BlueCardHover;
-    if (favored) {
+    if (favored && !dashboard) {
         CardHover = RedCardHover;
-    } else if (!favored && selected) {
+    } else if (!favored && disabled) {
         CardHover = DisabledCardHover;
     }
-
     return (
-        <CardHover onClick={() => toggelFavorit(coinKey)}>
+        <CardHover
+            onClick={toggelFavorit ? () => toggelFavorit(coinKey) : undefined}
+        >
             <CoinCard>
-                <CoinInfo>
-                    <div>{coin.CoinName}</div>
-                    <div>{coin.Symbol}</div>
+                <CoinInfo {...{ showStar }}>
+                    <div>{coin && coin.CoinName}</div>
+                    <div>{coin && coin.Symbol}</div>
+                    {price ? (
+                        <div>
+                            {price[coinKey][currencey].PRICE} {currencey}
+                        </div>
+                    ) : null}
                 </CoinInfo>
                 <CoinImage
-                    src={`https://www.cryptocompare.com${coin.ImageUrl}`}
-                    alt={coin.CoinName}
+                    src={`https://www.cryptocompare.com${
+                        coin && coin.ImageUrl
+                    }`}
+                    alt={coin && coin.CoinName}
                 />
             </CoinCard>
         </CardHover>
     );
-};
+}
 
-export default Coin;
+export { Coin };
