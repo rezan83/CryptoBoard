@@ -12,7 +12,7 @@ import {
 } from "./actionTypes";
 
 const initialState = {
-    page: "Settings",
+    page: "Dashboard",
     firstVisit: true,
     coins: {},
     favorites: ["BTC", "ETH"],

@@ -10,6 +10,14 @@ let Title = styled.div`
 export function Welcome(params) {
     const { state } = React.useContext(AppContext);
     return (
-        <Title>{state.firstVisit && <h1>Welcome to crypto board</h1>}</Title>
+        <Title>
+            {state.firstVisit && (
+                <h3>
+                    Welcome to CryptoBoard!, it's your first visit, you can see
+                    a specific chart in dashboard and change your settings in
+                    settings page.
+                </h3>
+            )}
+        </Title>
     );
 }

@@ -91,7 +91,6 @@ function Core() {
 
     return (
         <>
-            {console.log(dayjs().subtract(1, "months").format('MMM'))}
             <Navbar />
             <Welcome />
 
