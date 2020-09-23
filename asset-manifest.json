@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/CryptoBoard/static/css/main.240a1125.chunk.css",
+    "main.js": "/CryptoBoard/static/js/main.eec5ce5e.chunk.js",
+    "main.js.map": "/CryptoBoard/static/js/main.eec5ce5e.chunk.js.map",
+    "runtime-main.js": "/CryptoBoard/static/js/runtime-main.4298baea.js",
+    "runtime-main.js.map": "/CryptoBoard/static/js/runtime-main.4298baea.js.map",
+    "static/js/2.d2011e1c.chunk.js": "/CryptoBoard/static/js/2.d2011e1c.chunk.js",
+    "static/js/2.d2011e1c.chunk.js.map": "/CryptoBoard/static/js/2.d2011e1c.chunk.js.map",
+    "static/js/3.cafceb7e.chunk.js": "/CryptoBoard/static/js/3.cafceb7e.chunk.js",
+    "static/js/3.cafceb7e.chunk.js.map": "/CryptoBoard/static/js/3.cafceb7e.chunk.js.map",
+    "index.html": "/CryptoBoard/index.html",
+    "precache-manifest.64c75babcb5f1df88865d94e13a2c734.js": "/CryptoBoard/precache-manifest.64c75babcb5f1df88865d94e13a2c734.js",
+    "service-worker.js": "/CryptoBoard/service-worker.js",
+    "static/css/main.240a1125.chunk.css.map": "/CryptoBoard/static/css/main.240a1125.chunk.css.map",
+    "static/js/2.d2011e1c.chunk.js.LICENSE.txt": "/CryptoBoard/static/js/2.d2011e1c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4298baea.js",
+    "static/js/2.d2011e1c.chunk.js",
+    "static/css/main.240a1125.chunk.css",
+    "static/js/main.eec5ce5e.chunk.js"
+  ]
+}
