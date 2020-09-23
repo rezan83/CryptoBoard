@@ -14,7 +14,7 @@ const CoinsGridStyled = styled.div`
 
 function CoinsGrid({ favored, dashboard }) {
     const {
-        state: { coins, favorites, prices, currencey, found, query, page },
+        state: { coins, favorites, prices, found, query, page },
         dispatch,
     } = React.useContext(AppContext);
     const toggelFavorit = (coinKey) => {
