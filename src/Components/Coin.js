@@ -58,12 +58,14 @@ function Coin({
                         </div>
                     ) : null}
                 </CoinInfo>
-                <CoinImage
-                    src={`https://www.cryptocompare.com${
-                        coin && coin.ImageUrl
-                    }`}
-                    alt={coin && coin.CoinName}
-                />
+                {(favored || showStar) && (
+                    <CoinImage
+                        src={`https://www.cryptocompare.com${
+                            coin && coin.ImageUrl
+                        }`}
+                        alt={coin && coin.CoinName}
+                    />
+                )}
             </CoinCard>
         </CardHover>
     );
