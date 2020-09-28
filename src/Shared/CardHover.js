@@ -9,12 +9,17 @@ import {
 export const BlueCard = styled.div`
     ${subtleBoxShadow};
     ${lightBlueBackground};
+    transition: all 0.5s;
     padding: 10px;
 `;
 export const BlueCardHover = styled(BlueCard)`
     &:hover {
         ${cyanBoxShadow}
     }
+`;
+export const StarMe = styled(BlueCard)`
+    ${cyanBoxShadow};
+    transform: scale(1.1, 1.1);
 `;
 
 export const RedCardHover = styled(BlueCardHover)`

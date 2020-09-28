@@ -8,13 +8,13 @@ import { Coin } from "./Coin";
 const CoinsGridStyled = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    grid-gap: 5px;
+    grid-gap: 10px;
     margin-top: 2vw;
 `;
 
 function CoinsGrid({ favored, dashboard }) {
     const {
-        state: { coins, favorites, prices, found, query, page },
+        state: { coins, favorites, prices, found, query, page ,showStar},
         dispatch,
     } = React.useContext(AppContext);
     const toggelFavorit = (coinKey) => {
@@ -42,6 +42,7 @@ function CoinsGrid({ favored, dashboard }) {
         let price = isFavorit(coinKey) ? prices[coinKey] : null;
         let props = {
             coinKey,
+            showStar,
             coin,
             toggelFavorit,
             favored,

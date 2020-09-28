@@ -4,6 +4,7 @@ import {
     BlueCardHover,
     RedCardHover,
     DisabledCardHover,
+    StarMe,
 } from "../Shared/CardHover";
 
 const CoinCard = styled.div`
@@ -17,7 +18,7 @@ const CoinInfo = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-size: ${(props) => (props.showStar ? "200%" : "100%")};
+    font-size: ${(props) => (props.showStar ? "calc(.5em + 1vw)" : "100%")};
 `;
 const CoinImage = styled.img`
     width: 20%;
@@ -43,6 +44,8 @@ function Coin({
         CardHover = RedCardHover;
     } else if (!favored && disabled) {
         CardHover = DisabledCardHover;
+    } else if (coinKey === showStar) {
+        CardHover = StarMe;
     }
     return (
         <CardHover
@@ -58,7 +61,7 @@ function Coin({
                         </div>
                     ) : null}
                 </CoinInfo>
-                {(favored || showStar) && (
+                {favored && (
                     <CoinImage
                         src={`https://www.cryptocompare.com${
                             coin && coin.ImageUrl

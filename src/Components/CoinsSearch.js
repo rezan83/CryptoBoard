@@ -17,19 +17,19 @@ const Form = styled.form`
     position: relative;
     display: flex;
     margin-bottom: 50px;
-    width: 1%;
+    width: 1vw;
 `;
 const Input = styled.input`
     background-color: rgba(255, 255, 255, 0.5);
-    width: 100%;
+    width: 1vw;
     height: 6vh;
-    border-radius: 20px;
+    border-radius: 30px;
     border-color: #00edf9;
     border-width: 0;
     padding-left: 25px;
-    transition: all 0.5s;
+    transition: all 1s;
     &:focus {
-        width: 1500%;
+        width: 30vw;
         border-radius: 5px;
     }
 `;
