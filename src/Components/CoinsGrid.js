@@ -53,14 +53,16 @@ function CoinsGrid({ favored, dashboard }) {
     });
     const GridTitle = () => {
         let title = "All Coins, click to add to favorites:";
+        let style = null
         if (favored) {
             title = "Your Favorit Coins:";
         } else if (found.length && query) {
             title = "Results:";
         } else if (!found.length && query) {
-            title = "Sorry no Results, see all Coins:";
+            title = "Sorry no Results, see all Coins instead:";
+            style = {color: 'red'}
         }
-        return <h3>{title}</h3>;
+        return <h3 style={style}>{title}</h3>;
     };
     return (
         <>
