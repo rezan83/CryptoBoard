@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "77b43d854eedb9a52b63fe08989c8b4d",
+    "revision": "75bf5af60dab0a767adc8a2cfa1ab613",
     "url": "/CryptoBoard/index.html"
   },
   {
-    "revision": "24717f7e2995b4358939",
+    "revision": "414be742089835e27401",
     "url": "/CryptoBoard/static/css/main.240a1125.chunk.css"
   },
   {
@@ -16,16 +16,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/CryptoBoard/static/js/2.b81c2af2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2b3e4cf23e3d2e16b25b",
-    "url": "/CryptoBoard/static/js/3.44b850ae.chunk.js"
+    "revision": "33fdbcb14a42cb0127cd",
+    "url": "/CryptoBoard/static/js/3.4b7bc1f1.chunk.js"
   },
   {
-    "revision": "24717f7e2995b4358939",
-    "url": "/CryptoBoard/static/js/main.5160a603.chunk.js"
+    "revision": "414be742089835e27401",
+    "url": "/CryptoBoard/static/js/main.2689eb12.chunk.js"
   },
   {
-    "revision": "125f5ef75f127b36cd10",
-    "url": "/CryptoBoard/static/js/runtime-main.ac636354.js"
+    "revision": "e46f440649069d55802f",
+    "url": "/CryptoBoard/static/js/runtime-main.fd52fae8.js"
   },
   {
     "revision": "d45878955efcbbc242c33a43bfd83782",
