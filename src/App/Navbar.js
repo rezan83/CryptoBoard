@@ -1,7 +1,7 @@
 import React  from "react";
 import styled, { css } from "styled-components";
 import { AppContext } from "./AppProvider";
-import { SET_PAGE, SET_CURRENCY, SET_TIMERANGE } from "../App/actionTypes";
+import { SET_PAGE } from "../App/actionTypes";
 
 let NavHorizontal = styled.div`
     display: grid;

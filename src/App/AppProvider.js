@@ -5,6 +5,7 @@ import {
     SET_PAGE,
     SET_CURRENCY,
     SET_TIMERANGE,
+    SET_TIMEPOINTS,
     ADD_FAVORITES,
     SEARCH,
     QUERY,
@@ -25,7 +26,7 @@ const initialState = {
     timeLabels: [],
     timeRange: "months",
     timeForm: "MMM",
-    timePoints: 10,
+    timePoints: 12,
     showStar: "BTC",
     query: "",
     found: [],
@@ -51,14 +52,16 @@ function reducer(state, action) {
             return { ...state, page: payload };
         case SET_CURRENCY:
             return { ...state, toCurrency: payload };
+        case SET_TIMEPOINTS:
+            return { ...state, timePoints: payload };
         case SET_TIMERANGE:
-            let timeForm = "MMM"
-             if (payload === "days") {
-                 timeForm = "dd";
-             } else if (payload === "hours") {
-                 timeForm = "HH";
-             }
-            return { ...state, timeRange: payload , timeForm};
+            let timeForm = "MMM";
+            if (payload === "days") {
+                timeForm = "dd";
+            } else if (payload === "hours") {
+                timeForm = "HH";
+            }
+            return { ...state, timeRange: payload, timeForm };
         case QUERY:
             return { ...state, query: payload };
 

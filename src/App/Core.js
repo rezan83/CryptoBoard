@@ -82,7 +82,7 @@ const Core = ()=> {
                 payload: cryptoBoardData,
             });
         }
-    }, [showStar, toCurrency, timeRange]);
+    }, [showStar, toCurrency, timePoints, timeRange]);
 
     return (
         <>

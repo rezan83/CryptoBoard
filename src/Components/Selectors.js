@@ -1,9 +1,14 @@
-import React from 'react'
-import styled from "styled-components"
+import React from "react";
+import styled from "styled-components";
 import { AppContext } from "../App/AppProvider";
-import { SET_CURRENCY, SET_TIMERANGE } from "../App/actionTypes";
+import {
+    SET_CURRENCY,
+    SET_TIMERANGE,
+    SET_TIMEPOINTS,
+} from "../App/actionTypes";
 
 let Selector = styled.div`
+margin-right: 10px;
     select {
         font-size: calc(0.7em);
         cursor: pointer;
@@ -11,7 +16,12 @@ let Selector = styled.div`
         color: #fff;
     }
 `;
-export const SelectToCurrency = () => {
+
+let Selectors = styled.div`
+    display: flex;
+    
+`;
+ const SelectToCurrency = () => {
     const { state, dispatch } = React.useContext(AppContext);
     const changeCurrency = (e) => {
         let toCurrency = e.target.value;
@@ -19,6 +29,7 @@ export const SelectToCurrency = () => {
     };
     return (
         <Selector>
+            Currency:
             <select
                 name="toCurrency"
                 value={state.toCurrency}
@@ -32,7 +43,33 @@ export const SelectToCurrency = () => {
     );
 };
 
-export const SelectTimeRange = () => {
+ 
+ const SelectTimePoints = () => {
+    const { state, dispatch } = React.useContext(AppContext);
+    const changeTimePoints = (e) => {
+        let timePoints = e.target.value;
+        dispatch({ type: SET_TIMEPOINTS, payload: timePoints });
+    };
+
+    return (
+        <Selector>
+            Time:
+            <select
+                name="timePoints"
+                value={state.timePoints}
+                onChange={(e) => changeTimePoints(e)}
+            >
+                <option value="3">3</option>
+                <option value="6">6</option>
+                <option value="9">9</option>
+                <option value="12">12</option>
+            </select>
+            
+        </Selector>
+    );
+};
+
+const SelectTimeRange = () => {
     const { state, dispatch } = React.useContext(AppContext);
     const changeTimeRange = (e) => {
         let timeRange = e.target.value;
@@ -42,7 +79,7 @@ export const SelectTimeRange = () => {
     return (
         <Selector>
             <select
-                name="toCurrency"
+                name="timeRange"
                 value={state.timeRange}
                 onChange={(e) => changeTimeRange(e)}
             >
@@ -51,5 +88,15 @@ export const SelectTimeRange = () => {
                 <option value="hours">hours</option>
             </select>
         </Selector>
+    );
+};
+
+export const SelectorGroup = () => {
+    return (
+        <Selectors>
+            <SelectToCurrency />
+            <SelectTimePoints />
+            <SelectTimeRange />
+        </Selectors>
     );
 };

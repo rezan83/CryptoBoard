@@ -5,7 +5,7 @@ import {
     CoinsSearch,
     Historic,
 } from "./index";
-import { SelectTimeRange, SelectToCurrency } from "./Selectors";
+import { SelectorGroup } from "./Selectors";
 import loading from "./loading.gif";
 
 const CoinsGrid = React.lazy(() => import("./CoinsGrid"));
@@ -31,7 +31,7 @@ let Container = styled.div`
     height: 30vw;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 10% 1fr;
+    grid-template-rows: 10% 1fr;
 `;
 
 
@@ -44,8 +44,10 @@ function Dashboard() {
             <hr />
             <Seperator />
             <Container>
-                <SelectToCurrency />
-                <SelectTimeRange />
+              
+                    <SelectorGroup />
+                  
+             
                 <Historic />
             </Container>
         </>
@@ -57,7 +59,7 @@ export { Dashboard };
 function Settings() {
     return (
         <>
-            <React.Suspense fallback={Fallback}>
+            <React.Suspense fallback={<Fallback />}>
                 <CoinsGrid favored />
             </React.Suspense>
 
@@ -65,7 +67,7 @@ function Settings() {
             <hr />
             <CoinsSearch />
 
-            <React.Suspense fallback={Fallback}>
+            <React.Suspense fallback={<Fallback />}>
                 <CoinsGrid />
             </React.Suspense>
         </>
