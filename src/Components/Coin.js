@@ -37,7 +37,7 @@ function Coin({
     disabled = false,
     showStar = false,
     dashboard = false,
-    toCurrencey = "EUR",
+    toCurrencey = null,
 }) {
     let CardHover = BlueCardHover;
     if (favored && !dashboard) {
@@ -57,7 +57,8 @@ function Coin({
                     <div>{coin && coin.Symbol}</div>
                     {price ? (
                         <div>
-                            {price[coinKey][toCurrencey].PRICE} {toCurrencey}
+                            {toCurrencey && price[coinKey][toCurrencey].PRICE}{" "}
+                            {toCurrencey}
                         </div>
                     ) : null}
                 </CoinInfo>

@@ -16,9 +16,18 @@ cc.setApiKey(
     "ce863a115f37457c7746646a6d4c7a29fc1c247e4a6cebebfb0ad9dd59d71539"
 );
 
-const Core = React.memo( ()=> {
+const Core = ()=> {
     const {
-        state: { page, favorites, showStar, toCurrency, timeRange, timePoints },
+        state: {
+            page,
+            favorites,
+            showStar,
+            toCurrency,
+            allCurrency,
+            timeRange,
+            timeForm,
+            timePoints,
+        },
         dispatch,
     } = React.useContext(AppContext);
 
@@ -31,22 +40,17 @@ const Core = React.memo( ()=> {
     const fetchPrices = React.useCallback(async () => {
         let prices = {};
         for (let i in favorites) {
-            let price = await cc.priceFull(favorites[i], toCurrency);
+            let price = await cc.priceFull(favorites[i], allCurrency);
             prices[favorites[i]] = price;
         }
         dispatch({ type: FETCH_PRICES, payload: prices });
-    }, [dispatch, favorites, toCurrency]);
+    }, [dispatch, favorites,allCurrency]);
 
     const fetchHistorical = React.useCallback(async () => {
         let historical = [];
         let timeLabels = [];
-        let timeForm = "MMM";
-        if (timeRange === "days") {
-            timeForm = "dd";
-        } else if (timeRange === "hours") {
-            timeForm = "HH";
-        }
-        for (let point = timePoints; point > 0; point--) {
+
+        for (let point = timePoints; point >= 0; point--) {
             let price = await cc.priceHistorical(
                 showStar,
                 [toCurrency],
@@ -61,7 +65,7 @@ const Core = React.memo( ()=> {
             type: FETCH_HISTORICAL,
             payload: { historical, timeLabels },
         });
-    }, [dispatch, showStar, timePoints, timeRange, toCurrency]);
+    }, [dispatch, showStar, timePoints, toCurrency, timeRange]);
 
     React.useEffect(() => {
         let cryptoBoardData = JSON.parse(localStorage.getItem("cryptoBoard"));
@@ -78,17 +82,16 @@ const Core = React.memo( ()=> {
                 payload: cryptoBoardData,
             });
         }
-    }, [dispatch, showStar]);
+    }, [showStar, toCurrency, timeRange]);
 
     return (
         <>
             <Navbar />
             <Welcome />
-
             {page === "Settings" ? <Settings /> : <Dashboard />}
         </>
     );
-})
+}
 
 
 export default Core;

@@ -1,11 +1,11 @@
 import React  from "react";
 import styled, { css } from "styled-components";
 import { AppContext } from "./AppProvider";
-import { SET_PAGE } from "../App/actionTypes";
+import { SET_PAGE, SET_CURRENCY, SET_TIMERANGE } from "../App/actionTypes";
 
 let NavHorizontal = styled.div`
     display: grid;
-    grid-template-columns: minmax(100px, 1fr) 75px 75px;
+    grid-template-columns: minmax(100px, 1fr) 50px 50px 50px;
     grid-gap: 5vw;
     margin-bottom: 30px;
 `;
@@ -25,6 +25,7 @@ let LinkActive = styled.div`
         `}
 `;
 
+
 const StyledLink = ({ name, active }) => {
     const { state, dispatch } = React.useContext(AppContext);
     return (
@@ -43,6 +44,7 @@ export default function Navbar() {
             <Logo>_CryptoBoard_</Logo>
             <StyledLink name={"Dashboard"} />
             <StyledLink name={"Settings"} />
+            
         </NavHorizontal>
     );
 }

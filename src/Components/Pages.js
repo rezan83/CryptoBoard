@@ -1,6 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { SaveSettingsButton, CoinsSearch, Historic } from "./index";
+import {
+    SaveSettingsButton,
+    CoinsSearch,
+    Historic,
+} from "./index";
+import { SelectTimeRange, SelectToCurrency } from "./Selectors";
 import loading from "./loading.gif";
 
 const CoinsGrid = React.lazy(() => import("./CoinsGrid"));
@@ -26,18 +31,21 @@ let Container = styled.div`
     height: 30vw;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 20% 1fr;
+    grid-template-columns: 10% 1fr;
 `;
+
 
 function Dashboard() {
     return (
         <>
-            <React.Suspense fallback={Fallback}>
+            <React.Suspense fallback={<Fallback />}>
                 <CoinsGrid favored dashboard />
             </React.Suspense>
             <hr />
             <Seperator />
             <Container>
+                <SelectToCurrency />
+                <SelectTimeRange />
                 <Historic />
             </Container>
         </>
