@@ -8,12 +8,14 @@ import {
 } from "../App/actionTypes";
 
 let Selector = styled.div`
-margin-right: 10px;
-    select {
-        font-size: calc(0.7em);
-        cursor: pointer;
-        background-color: transparent;
-        color: #fff;
+    margin-right: 10px;
+    select ,
+        option {
+            font-size: calc(10px + 0.5vw);
+            cursor: pointer;
+            background-color: #010010;
+            color: #fff;
+        
     }
 `;
 
@@ -29,8 +31,9 @@ let Selectors = styled.div`
     };
     return (
         <Selector>
-            Currency:
+            <label for="toCurrency">Currency: </label>
             <select
+                id="toCurrency"
                 name="toCurrency"
                 value={state.toCurrency}
                 onChange={(e) => changeCurrency(e)}
@@ -53,8 +56,9 @@ let Selectors = styled.div`
 
     return (
         <Selector>
-            Time:
+            <label for="timePoints">Time: </label>
             <select
+                id="timePoints"
                 name="timePoints"
                 value={state.timePoints}
                 onChange={(e) => changeTimePoints(e)}
@@ -64,7 +68,6 @@ let Selectors = styled.div`
                 <option value="9">9</option>
                 <option value="12">12</option>
             </select>
-            
         </Selector>
     );
 };

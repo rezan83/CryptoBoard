@@ -35,6 +35,7 @@ function Historic(){
                     "rgba(0, 204, 255, 0.94)",
                 ],
                 borderWidth: 1,
+                lineTension: 0.2,
             },
         ],
     };
